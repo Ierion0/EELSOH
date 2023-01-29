@@ -47,12 +47,28 @@ Some places may have higher amounts of radiation, especially in cities, where ne
 ( 1-BARNS*10^(-10) ) ^ ( (g/m^3) * 10^(-27) *        N         / MOLARMASS )
 \ %coverage of 1nm /   \ density /\ to nm^3 /\avagadro’s number/\ molar mass
 ```
-=Nuetron capture nm^3 = ( 1-BARNS*10^(-10) )^( (g/m^3)*6.02214179*10^(-4) / MOLARMASS )
-$
-#### $\Omega = \int_0^{m(n^0)\times c^2}[\sum_{n=0}^{I_{max}}(\Omega(E-\epsilon)\times(\frac{\rho}{u}-\sigma(I_n,E))\times\phi(E))]dE$
-Where $m(n^0)$ is the mass of a neutron, $c$ is the speed of light (those two together is the max energy of the nuetron), $I_{max}$ is  the total number of isotopes being accounted for, $E$ is the nuetron energy, $\epsilon$ is an infitesimal number, $\rho$ is the density, $u$ is the atomic mass, $\sigma$ is the cross section as a function of the isotope ($I_n$) and nuetron energy $E$,  and $\phi$ is the nuetron flux
-
+=Neutron capture nm^3 = ( 1-BARNS*10^(-10) )^( (g/m^3)*6.02214179*10^(-4) / MOLARMASS )
 Barns is calculated from ENDF /B-VIII.0 database pulled from JANIS NEA.
+
+#### $\Omega_0(S) = \int_0^{\infty}[\sum_{n=0}^{S_{Imax}}[(1-\Omega_0(S))\times\frac{\sigma(S_{I_n},n^0_E) \times S_{I_u} \times S_{I_\alpha}}{S_\rho} ]]d(n^0_E)$
+$I_{max}$ is  the total number of isotopes being accounted for,
+$E$ is the neutron energy, 
+$\sigma$ is the cross section as a function of the isotope ($I_n$) and neutron energy $E$, 
+$S_{I_n}$ is the isotope in the substance being calculated (def in $\sum_{n=0}^{S_{Imax}}$), 
+$n_E^0$ is the current neutron energy being calculated (def in $\int_0^\infty$ ... $d(n_E^0)$ ), 
+$S_{I_u}$ is the mass of the isotope, 
+$S_{I_a}$ is the isotopic abundance in the substance, 
+$S_\rho$ is the density of the substance (as in $\frac{molecues}{measurement}$), and $\phi$ is the neutron flux. 
+And $\Omega_0(S)$ in the equation would have to be modified to take out the current 'calculation width', if one were introduced. 
+#### $\phi_R(S) = \int_0^{\infty} [\sum_{n=0} ^ {S_{Umax}}[(1 - \Omega_0(S)) \times \frac{\sigma(S_{U_n},n^0_E) \times S_{U_u} \times S_{U_\alpha}}{S_\rho} \times \phi_{n^0} (n^0_E) \times (S_{U_n} - S_{D_{n_u}})]] d(n^0_E)$
+$\phi_R$ is the radioactive flux after infinite time
+$S_{U_{max}}$ is the max unstable-susceptible isotopes (as in adding a neutron would make it unstable)
+$S_{U_n}$ is the isotope in the substance being calculated (def in $\sum_{n=0}^{S_{Umax}}$), 
+$S_{U_u}$ is the mass of the isotope
+$S_{U_a}$ is the isotopic abundance in the substance
+$\phi_{n^0}$ is the neutron flux
+$S_{D_{n_u}}$ (S_D_n_u) is the mass of the unstable (decaying) product of $S_{U_n}$
+
 
 Corresponding UVB levels would be far higher, requiring polarized sun glasses (UVB & UVA) and protective clothing. 
 
@@ -60,7 +76,7 @@ It is possible due to nitrogen deposition, radiation increase, and decomposing/w
 
 Computers without ECC will basically be unusable, while even computers with ECC will have trouble. Neutrons will increase by ~400x to maybe 51 bit flips per on-day per GB of ram. This is probably also applicable to SSDs.
 
-Food irradiation could improve t he filespan of foods
+Food irradiation could improve the lifespan of foods
 
 
 Psudo Venice
