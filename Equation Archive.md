@@ -9,3 +9,6 @@ This is a curve that approximates the cancer rate until ~75-79 range, where the 
 \ %coverage of 1nm /   \ density /\ to nm^3 /\avagadro’s number/\ molar mass
 ```
 
+#### $\Omega_0(\mathbb{I}) = \sum_{I=0}^{\mathbb{I}max}[P(I)]$
+
+(931.5/(624200*10))(3.016049281320-3.0160293201)(1-(( 1-4.2357910^(-10) ) ^ ( (.997*0.000145*1/3) * 10^(2) / 2))^(10^7))
